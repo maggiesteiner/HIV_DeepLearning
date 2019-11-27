@@ -1,0 +1,48 @@
+[1] "Results for fold 1:"
+$loss
+[1] 0.3678683
+
+$acc
+[1] 0.8418972
+
+[1] "TP, FP, TN, FN:"
+[1]  81  16 132  24
+[1] "Results for fold 2:"
+$loss
+[1] 0.4190457
+
+$acc
+[1] 0.7992126
+
+[1] "TP, FP, TN, FN:"
+[1] 103  34 100  17
+[1] "Results for fold 3:"
+$loss
+[1] 0.3179559
+
+$acc
+[1] 0.8735178
+
+[1] "TP, FP, TN, FN:"
+[1]  84   8 137  24
+[1] "Results for fold 4:"
+$loss
+[1] 0.272633
+
+$acc
+[1] 0.9090909
+
+[1] "TP, FP, TN, FN:"
+[1] 118  12 112  11
+[1] "Results for fold 5:"
+$loss
+[1] 0.3586783
+
+$acc
+[1] 0.8346457
+
+[1] "TP, FP, TN, FN:"
+[1]  84  22 128  20
+[1] 0.8418972 0.7992126 0.8735178 0.9090909 0.8346457
+[1] "Runtime:"
+Time difference of 17.0859 mins

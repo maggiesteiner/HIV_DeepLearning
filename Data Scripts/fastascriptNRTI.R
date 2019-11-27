@@ -1,0 +1,6 @@
+create_fasta_RT(ttc,res_vals_ttc,"ttc.fasta")
+create_fasta_RT(abc,res_vals_abc,"abc.fasta")
+create_fasta_RT(azt,res_vals_azt,"azt.fasta")
+create_fasta_RT(dft,res_vals_dft,"dft.fasta")
+create_fasta_RT(ddi,res_vals_ddi,"ddi.fasta")
+create_fasta_RT(tdf,res_vals_tdf,"tdf.fasta")
