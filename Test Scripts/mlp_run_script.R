@@ -9,6 +9,8 @@ require(plyr)
 set.seed(1234)
 
 #functions
+
+### perf_measure ###
 perf_measure<-function(y_ref,y_pred){
   TP=0;
   FP=0;
@@ -29,6 +31,7 @@ perf_measure<-function(y_ref,y_pred){
   x<-c(TP,FP,TN,FN)
   return(x)
 }
+
 ### get_model() ###
 get_model<-function(bp,nunits){
   #create model
@@ -59,7 +62,6 @@ for (i in 1:length(input_list)){
   
 #input/output filenames
   infile=input_list[i]
-  #pdfout="etr_featureimp_plot.pdf"
   if (i %in% c(1,5,6,7,8,9,10,11)) genecode = "PR"
   else genecode="RT"
   outfile=paste(infile,".output.txt",sep="")
@@ -195,9 +197,6 @@ for (i in 1:length(input_list)){
   starttime=Sys.time()
   for(i in 1:k){
     #separate validation and training data
-    #validation_indices<-which(folds==i,arr.ind=TRUE)
-    #validation_data_k<-data_f[validation_indices,]
-    #validation_labels_k<-data_labels[validation_indices]
     validation_data_k<-data_f[which(folds==i),]
     validation_labels_k<-data_labels[which(folds==i)]
     training_data<-data_f[which(folds!=i),]
@@ -241,6 +240,7 @@ for (i in 1:length(input_list)){
     rocout<-cbind(preds_proba,validation_preds,validation_labels_k)
     rocout_list[[i]] = rocout
   }#end of iteration through folds
+  
   print(validation_scores)
   endtime = Sys.time()
   print("Runtime:")
