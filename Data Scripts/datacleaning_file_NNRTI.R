@@ -1,6 +1,10 @@
-#data cleaning - remove sequences with unknown changes
+## data cleaning file for NNRTI
+
+# read in and raw data
 data<-read.csv("NNRTI_stanford.csv",header=T)
 colnames(data)[1]<-"SeqID"
+
+# remove missing values
 missing_vals<-c()
 for(i in 1:nrow(data)){
   for(j in 10:length(data[i,])){
@@ -12,7 +16,6 @@ missing_vals<-missing_vals[!duplicated(missing_vals)]
 data_new<-data
 for(k in 1:length(missing_vals)){
   data_new<-data_new[!data_new$SeqID==missing_vals[k],]
-  #print(missing_vals[i])
 }
 
 #separate by drugs
@@ -21,18 +24,16 @@ nvp<-data_new[!is.na(data_new$NVP),]
 etr<-data_new[!is.na(data_new$ETR),]
 rpv<-data_new[!is.na(data_new$RPV),]
 
-
 #remove other drugs columns
 efv<-efv[,-c(3:5)]
 nvp<-nvp[,-c(2,4:5)]
 etr<-etr[,-c(2:3,5)]
 rpv<-rpv[,-c(2:4)]
 
-
-
 #assign resistance classification
-#cutoff = 3.5 from Bonnet article
+#cutoff = 3.5 
 #1=resistant,0=not
+
 res_vals_efv<-array()
 for(i in 1:nrow(efv)){
   if(efv[i,2]>=3.5)
@@ -63,9 +64,6 @@ for(i in 1:nrow(etr)){
 }
 etr<-cbind(etr,res_vals_etr)
 
-#resistant = 1
-#not resistant = 0
-
 res_vals_rpv<-array()
 for(i in 1:nrow(rpv)){
   if(rpv[i,2]>=3.5)
@@ -75,7 +73,5 @@ for(i in 1:nrow(rpv)){
   res_vals_rpv[i]<-res
 }
 rpv<-cbind(rpv,res_vals_rpv)
-
-
 
 #result is dataframes for each drug with binomial resistance values
