@@ -15,7 +15,13 @@ Below are brief descriptions of the files included in this repository.
 
 ### Data Scripts
 
-CSV files: input from Stanford database (https://hivdb.stanford.edu). Data cleaning files: generate drug-specific datasets from CSV files. Sequence_maker.R: Functions to create FASTA files. FASTA script files: scripts to generate fastas from output of data cleaning files.
+These files were used for cleaning and formatting the raw data.
+
+`NNRTI_stanford.csv`, `NRTI_stanford.csv`, and `PI_stanford.csv` are raw data files downloaded from the Stanford database. 
+ 
+`datacleaning_file_NNRTI.R`,  `datacleaning_file_NRTI.R`, and  `datacleaning_file_PI.R` clean the raw files and separate the data into drug-specific dataframes.
+ 
+`sequence_maker.R` includes functions to generate FASTA files from the dataframes generated in the data cleaning files. `fastascriptNNRTI.R`,  `fastascriptNRTI.R`, and `fastascriptPI.R` call this function to generate fasta files for input into the classifiers.
 
 ### FASTA Files
 
