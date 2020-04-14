@@ -9,6 +9,8 @@ require(plyr)
 set.seed(1234)
 
 #functions
+
+### perf_measure ###
 perf_measure<-function(y_ref,y_pred){
   TP=0;
   FP=0;
@@ -29,6 +31,7 @@ perf_measure<-function(y_ref,y_pred){
   x<-c(TP,FP,TN,FN)
   return(x)
 }
+
 ### get_model() ###
 get_model<-function(bp,nunits){
   #create model
@@ -37,7 +40,6 @@ get_model<-function(bp,nunits){
     layer_conv_1d(filters=32,kernel_size=9,activation="relu") %>%
     layer_max_pooling_1d(pool_size = 5)%>%
     layer_conv_1d(filters=32,kernel_size=9,activation="relu") %>%
-    #layer_max_pooling_1d()%>%
     layer_flatten() %>%
     layer_dense(units=1,activation="sigmoid")
     
@@ -196,9 +198,6 @@ for (i in 1:length(input_list)){
   starttime=Sys.time()
   for(i in 1:k){
     #separate validation and training data
-    #validation_indices<-which(folds==i,arr.ind=TRUE)
-    #validation_data_k<-data_f[validation_indices,]
-    #validation_labels_k<-data_labels[validation_indices]
     validation_data_k<-data_f[which(folds==i),]
     validation_labels_k<-data_labels[which(folds==i)]
     training_data<-data_f[which(folds!=i),]
@@ -220,8 +219,8 @@ for (i in 1:length(input_list)){
       batch_size=64,
       class_weight=list("0"=weight_0,"1"=weight_1)
     )
-    # 
-    #   #test model on validation set
+     
+    #test model on validation set
     results_k<-model %>% evaluate(validation_data_k, validation_labels_k)
     print(paste("Results for fold ",i,":",sep=""))
     print(results_k)
@@ -242,6 +241,7 @@ for (i in 1:length(input_list)){
     rocout<-cbind(preds_proba,validation_preds,validation_labels_k)
     rocout_list[[i]] = rocout
   }#end of iteration through folds
+  
   print(validation_scores)
   endtime = Sys.time()
   print("Runtime:")
