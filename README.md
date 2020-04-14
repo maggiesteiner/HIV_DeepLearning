@@ -35,4 +35,5 @@ Output files of test scripts.
 
 ## Helpful Resources
 
-For readers 
+- For readers interested in developing their own deep learning models in R, we recommend starting the tutorials provided [here](https://keras.rstudio.com/articles/getting_started.html). 
+- For an introduction to machine learning concepts alongside R tutorials, we recommend this [book](https://www.manning.com/books/deep-learning-with-r). 
