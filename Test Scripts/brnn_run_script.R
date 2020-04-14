@@ -8,7 +8,9 @@ require(iml)
 require(plyr)
 set.seed(1234)
 
-#functions
+## functions
+
+### perf_measure() ###
 perf_measure<-function(y_ref,y_pred){
   TP=0;
   FP=0;
