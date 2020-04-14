@@ -1,6 +1,6 @@
 #  Drug Resistance Prediction Using Deep Learning Techniques on HIV-1 Sequence Data
 
-This repository contains code used to train and evaluate deep learning classifiers for HIV-1 drug resistance prediction from sequence data (Steiner et al., 2020, _in review_). All data is publicly available via the [Stanford HIV Drug Resistance Database](https://hivdb.stanford.edu). All code was written in R, and all classifiers were developed and trained using the R interface to [Keras](https://keras.rstudio.com). Other packages used include the [IML](https://cran.r-project.org/web/packages/iml/vignettes/intro.html) package for model interpretation and [ggplot2](https://ggplot2.tidyverse.org) for data visualization.
+This repository contains code used to train and evaluate deep learning classifiers for HIV-1 drug resistance prediction from sequence data (Steiner et al., 2020, _in review_). All data is publicly available via the [Stanford HIV Drug Resistance Database](https://hivdb.stanford.edu). All code was written in R, and all classifiers were developed and trained using the R interface to [Keras](https://keras.rstudio.com). Other packages used include the [IML](https://cran.r-project.org/web/packages/iml/vignettes/intro.html) package for model interpretation and [ggplot2](https://ggplot2.tidyverse.org) for data visualization. For more information on these methods, please refer to our paper.
 
 **Author:** Margaret C. Steiner ([GitHub](https://github.com/maggiesteiner)), Computational Biology Institute, The George Washington University
 
@@ -13,7 +13,7 @@ Below are brief descriptions of the files included in this repository.
 
 ### Data Scripts
 
-These files were used for cleaning and formatting the raw data.
+This directory contains files which were used for cleaning and formatting the raw data.
 
 `NNRTI_stanford.csv`, `NRTI_stanford.csv`, and `PI_stanford.csv` are raw data files downloaded from the Stanford database. 
  
@@ -23,7 +23,7 @@ These files were used for cleaning and formatting the raw data.
 
 ### FASTA Files
 
-Output of data script files.
+This directory includes FASTA files generated from the data cleaning steps.
 
 ### Test Scripts
 
