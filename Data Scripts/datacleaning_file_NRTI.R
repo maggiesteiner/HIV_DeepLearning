@@ -18,7 +18,7 @@ for(k in 1:length(missing_vals)){
 }
 
 #separate by drugs
-ttc<-data_new[!is.na(data_new$X3TC),]#TTC is 3Tc - can't have nums as var names
+ttc<-data_new[!is.na(data_new$X3TC),]#TTC is 3Tc - can't have nums as start of var names
 abc<-data_new[!is.na(data_new$ABC),]
 azt<-data_new[!is.na(data_new$AZT),]
 dft<-data_new[!is.na(data_new$D4T),]#d4t = dft
@@ -36,7 +36,7 @@ tdf<-tdf[,-c(2:6)]
 
 
 #assign resistance classification
-#cutoff = 3.5 from Bonnet article
+#cutoff = 3.5 
 #1=resistant,0=not
 res_vals_ttc<-array()
 for(i in 1:nrow(ttc)){
