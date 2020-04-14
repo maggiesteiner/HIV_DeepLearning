@@ -29,16 +29,17 @@ perf_measure<-function(y_ref,y_pred){
   x<-c(TP,FP,TN,FN)
   return(x)
 }
+
 ### get_model() ###
 get_model<-function(bp,nunits){
   #create model
   model<-keras_model_sequential() %>%
     layer_embedding(input_dim=bp,output_dim=nunits) %>%
-    #layer_global_average_pooling_1d() %>%
     bidirectional(
       layer_lstm(units=nunits,dropout=0.2,recurrent_dropout=0.2) #%>%
     ) %>%
     layer_dense(units=1,activation="sigmoid")
+  
   #compile model
   model %>% compile(
     optimizer="rmsprop",
@@ -186,17 +187,12 @@ for (i in 1:length(input_list)){
   rocout_list<-list()
   #set number of folds
   k<-5
-  #indices<-sample(1:nrow(data_f))
-  #folds<-cut(indices,breaks=k,labels=FALSE)
   folds <- createFolds(y = data_labels, k = 5, list = F) 
   validation_scores<-c()
   #k-fold cross validation
   starttime=Sys.time()
   for(i in 1:k){
     #separate validation and training data
-    #validation_indices<-which(folds==i,arr.ind=TRUE)
-    #validation_data_k<-data_f[validation_indices,]
-    #validation_labels_k<-data_labels[validation_indices]
     validation_data_k<-data_f[which(folds==i),]
     validation_labels_k<-data_labels[which(folds==i)]
     training_data<-data_f[which(folds!=i),]
@@ -218,8 +214,8 @@ for (i in 1:length(input_list)){
       batch_size=64,
       class_weight=list("0"=weight_0,"1"=weight_1)
     )
-    # 
-    #   #test model on validation set
+     
+    #test model on validation set
     results_k<-model %>% evaluate(validation_data_k, validation_labels_k)
     print(paste("Results for fold ",i,":",sep=""))
     print(results_k)
@@ -240,6 +236,7 @@ for (i in 1:length(input_list)){
     rocout<-cbind(preds_proba,validation_preds,validation_labels_k)
     rocout_list[[i]] = rocout
   }#end of iteration through folds
+  
   print(validation_scores)
   endtime = Sys.time()
   print("Runtime:")
