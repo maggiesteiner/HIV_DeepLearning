@@ -27,7 +27,7 @@ This directory includes FASTA files generated from the data cleaning steps.
 
 ### Test Scripts
 
-Scripts to train & evaluate all classifiers.
+This directory includes scripts used to train and evaluate all classifiers, including feature importance metrics, for MLP (`mlp_run_script.R`), BRNN (`brnn_run_script.R`), and CNN (`cnn_run_script.R`) models.  
 
 ### Figures
 
