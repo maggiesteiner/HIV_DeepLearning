@@ -1,4 +1,6 @@
-#data cleaning - remove sequences with unknown changes
+## data cleaning file for PI
+
+# read in raw data and remove missing values
 data<-read.csv("PI_stanford.csv",header=T)
 colnames(data)[1]<-"SeqID"
 missing_vals<-c()
@@ -12,7 +14,6 @@ missing_vals<-missing_vals[!duplicated(missing_vals)]
 data_new<-data
 for(k in 1:length(missing_vals)){
   data_new<-data_new[!data_new$SeqID==missing_vals[k],]
-  #print(missing_vals[i])
 }
 
 #separate by drugs
@@ -67,9 +68,6 @@ for(i in 1:nrow(idv)){
   res_vals_idv[i]<-res
 }
 idv<-cbind(idv,res_vals_idv)
-
-#resistant = 1
-#not resistant = 0
 
 res_vals_lpv<-array()
 for(i in 1:nrow(lpv)){
