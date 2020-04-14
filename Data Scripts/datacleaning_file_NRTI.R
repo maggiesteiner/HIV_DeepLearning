@@ -1,4 +1,7 @@
-#data cleaning - remove sequences with unknown changes
+## data cleaning file for NRTI
+
+# read in raw data and remove missing values
+
 data<-read.csv("NRTI_stanford.csv",header=T)
 colnames(data)[1]<-"SeqID"
 missing_vals<-c()
@@ -12,7 +15,6 @@ missing_vals<-missing_vals[!duplicated(missing_vals)]
 data_new<-data
 for(k in 1:length(missing_vals)){
   data_new<-data_new[!data_new$SeqID==missing_vals[k],]
-  #print(missing_vals[i])
 }
 
 #separate by drugs
@@ -66,9 +68,6 @@ for(i in 1:nrow(azt)){
 }
 azt<-cbind(azt,res_vals_azt)
 
-#resistant = 1
-#not resistant = 0
-
 res_vals_dft<-array()
 for(i in 1:nrow(dft)){
   if(dft[i,2]>=3.5)
@@ -98,6 +97,5 @@ for(i in 1:nrow(tdf)){
   res_vals_tdf[i]<-res
 }
 tdf<-cbind(tdf,res_vals_tdf)
-
 
 #result is dataframes for each drug with binomial resistance values
