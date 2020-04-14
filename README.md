@@ -4,8 +4,6 @@ This repository contains code used to train and evaluate deep learning classifie
 
 **Author:** Margaret C. Steiner ([GitHub](https://github.com/maggiesteiner)), Computational Biology Institute, The George Washington University
 
-Copyright (C) 2020, Margaret C. Steiner
-
 **Citation information:** 
 When referencing this project, please cite our recent publication (citation & link will be added here).
 
