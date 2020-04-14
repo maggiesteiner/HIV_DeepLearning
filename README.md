@@ -29,13 +29,19 @@ This directory includes FASTA files generated from the data cleaning steps.
 
 This directory includes scripts used to train and evaluate all classifiers, including feature importance metrics, for MLP (`mlp_run_script.R`), BRNN (`brnn_run_script.R`), and CNN (`cnn_run_script.R`) models.  
 
-### Figures
-
-Scripts used to generate figures. imp_plots_script.R: top-20 feature importance plots. new_impplots_script_sequence.R: whole-gene feature importance plots. roc_script_mlp.R, roc_script_cnn.R, roc_script_brnn.R: ROC curve plots. histogram_script.R: histograms from feature importance data.
-
 ### Results
 
-Output files of test scripts.
+The directories `MLP_Results`, `BRNN_Results`, and `CNN_Results` contain raw output files from the respective `Test Scripts` files (_.csv_ and _.txt_ formats).
+
+### Figures
+
+This directory includes scripts used to generate figures in `ggplot2`. 
+Scripts used to generate figures. 
+
+- `imp_plots_script.R`: top-20 feature importance plots
+- `new_impplots_script_sequence.R`: whole-gene feature importance plots  
+- `roc_script_mlp.R`, `roc_script_cnn.R`, and `roc_script_brnn.R`: ROC curves 
+- `histogram_script.R`: histograms from feature importance data from `imp_plot_data.xlsx` summary file.
 
 ## Helpful Resources
 
