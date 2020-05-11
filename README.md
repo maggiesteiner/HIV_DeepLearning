@@ -7,6 +7,8 @@ This repository contains code used to train and evaluate deep learning classifie
 **Citation information:** 
 When referencing this project, please cite our recent publication (citation & link will be added here).
 
+![img1](hivml_overviewfigure.png)
+
 ## Code and Data Files
 
 Below are brief descriptions of the files included in this repository.
