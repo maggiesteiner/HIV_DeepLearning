@@ -5,7 +5,10 @@ This repository contains code used to train and evaluate deep learning classifie
 **Author:** Margaret C. Steiner ([GitHub](https://github.com/maggiesteiner)), Computational Biology Institute, The George Washington University
 
 **Citation information:** 
-When referencing this project, please cite our recent publication (citation & link will be added here).
+When referencing this project, please cite our recent publication, available [here](https://www.mdpi.com/1999-4915/12/5/560). <br>
+
+Citation: Steiner, M.C.; Gibson, K.M.; Crandall, K.A. Drug Resistance Prediction Using Deep Learning Techniques on HIV-1 Sequence Data. _Viruses_ **2020**, 12, 560.
+
 
 ![img1](hivml_overviewfigure.png)
 
